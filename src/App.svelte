@@ -87,7 +87,7 @@
     on:dragstart|preventDefault
     on:mousedown={touchStart}
     on:mouseup={touchEnd}
-    on:mousewheel={onScroll}
+    on:wheel={onScroll}
     src="https://i.pinimg.com/originals/0a/b8/f7/0ab8f7c2ac635a9eb84ff2c934f23bbe.jpg"
     width="200"
     height="200"
