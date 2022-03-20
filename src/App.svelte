@@ -4,7 +4,7 @@
     shiftY: number,
     dragging: boolean = false;
 
-  function touchStart(event: MouseEvent) {
+  function mouseStart(event: MouseEvent) {
     dragging = true;
     fixedContImg.style.transition = "";
     if (dragging) {
@@ -22,11 +22,11 @@
     fixedContImg.style.top = pageY - shiftY + "px";
   }
 
-  function touchMove(event: MouseEvent) {
+  function mouseMove(event: MouseEvent) {
     if (dragging) moveAt(event.pageX, event.pageY);
   }
 
-  function touchEnd() {
+  function mouseEnd() {
     dragging = false;
   }
 
@@ -80,13 +80,13 @@
   }
 </script>
 
-<div class="container__fixed" on:mousemove={touchMove} on:mouseleave={touchEnd}>
+<div class="container__fixed" on:mousemove={mouseMove} on:mouseleave={mouseEnd}>
   <img
     draggable="true"
     bind:this={fixedContImg}
     on:dragstart|preventDefault
-    on:mousedown={touchStart}
-    on:mouseup={touchEnd}
+    on:mousedown={mouseStart}
+    on:mouseup={mouseEnd}
     on:wheel={onScroll}
     src="https://i.pinimg.com/originals/0a/b8/f7/0ab8f7c2ac635a9eb84ff2c934f23bbe.jpg"
     width="200"
