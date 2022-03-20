@@ -1,10 +1,10 @@
 <script lang="ts">
-  let fixedContImg,
-    shiftX,
-    shiftY,
-    dragging = false;
+  let fixedContImg: HTMLImageElement,
+    shiftX: number,
+    shiftY: number,
+    dragging: boolean = false;
 
-  function touchStart(event) {
+  function touchStart(event: MouseEvent) {
     dragging = true;
     fixedContImg.style.transition = "";
     if (dragging) {
@@ -17,12 +17,12 @@
     }
   }
 
-  function moveAt(pageX, pageY) {
+  function moveAt(pageX: number, pageY: number) {
     fixedContImg.style.left = pageX - shiftX + "px";
     fixedContImg.style.top = pageY - shiftY + "px";
   }
 
-  function touchMove(event) {
+  function touchMove(event: MouseEvent) {
     if (dragging) moveAt(event.pageX, event.pageY);
   }
 
@@ -30,13 +30,13 @@
     dragging = false;
   }
 
-  function onScroll(event) {
+  function onScroll(event: WheelEvent) {
     fixedContImg.style.transition = "all .2s";
 
-    let prevHeight;
-    let prevWidth;
-    let nextHeight;
-    let nextWidth;
+    let prevHeight: number;
+    let prevWidth: number;
+    let nextHeight: number;
+    let nextWidth: number;
 
     if (event.deltaY < 0) {
       fixedContImg.height = fixedContImg.offsetHeight * 1.3;
