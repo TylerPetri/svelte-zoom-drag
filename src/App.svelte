@@ -80,7 +80,7 @@
   }
 </script>
 
-<div class="container__fixed" on:mousemove={touchMove}>
+<div class="container__fixed" on:mousemove={touchMove} on:mouseleave={touchEnd}>
   <img
     draggable="true"
     bind:this={fixedContImg}
@@ -104,8 +104,8 @@
   }
 
   .container__fixed {
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
