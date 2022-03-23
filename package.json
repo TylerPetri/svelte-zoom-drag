@@ -1,6 +1,6 @@
 {
-  "name": "svelte-zoomo-drag",
-  "version": "1.0.0",
+  "name": "svelte-zoom-drag",
+  "version": "1.0.0-alpha",
   "private": true,
   "scripts": {
     "build": "rollup -c",

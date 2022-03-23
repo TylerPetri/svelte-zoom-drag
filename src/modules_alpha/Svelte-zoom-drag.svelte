@@ -38,7 +38,7 @@
 
   function mouseStart(event: MouseEvent) {
     dragging = true;
-    fixedContImg.style.transition = "";
+    fixedContImg.style.transition = ""; // TODO request requestAnimationFrame
     if (dragging) {
       shiftX =
         fixedContImg.offsetWidth *
@@ -63,7 +63,7 @@
   }
 
   function onScroll(event: WheelEvent) {
-    fixedContImg.style.transition = "all .2s";
+    fixedContImg.style.transition = "all .2s"; // TODO requestAnimationFrame
 
     let prevHeight: number;
     let prevWidth: number;
@@ -146,6 +146,8 @@
 
   .container__fixed img {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1000;
   }
 </style>
