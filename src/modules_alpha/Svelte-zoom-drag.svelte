@@ -23,7 +23,7 @@
   /**
    * Image element
    */
-  let fixedContImg: HTMLImageElement;
+  let Image: HTMLImageElement;
 
   /**
    * Used to adjust the image to mouse location on click
@@ -38,20 +38,20 @@
 
   function mouseStart(event: MouseEvent) {
     dragging = true;
-    fixedContImg.style.transition = ""; // TODO request requestAnimationFrame
+    Image.style.transition = ""; // TODO request requestAnimationFrame
     if (dragging) {
       shiftX =
-        fixedContImg.offsetWidth *
-        ((event.pageX - fixedContImg.offsetLeft) / fixedContImg.offsetWidth);
+        Image.offsetWidth *
+        ((event.pageX - Image.offsetLeft) / Image.offsetWidth);
       shiftY =
-        fixedContImg.offsetHeight *
-        ((event.pageY - fixedContImg.offsetTop) / fixedContImg.offsetHeight);
+        Image.offsetHeight *
+        ((event.pageY - Image.offsetTop) / Image.offsetHeight);
     }
   }
 
   function moveAt(pageX: number, pageY: number) {
-    fixedContImg.style.left = pageX - shiftX + "px";
-    fixedContImg.style.top = pageY - shiftY + "px";
+    Image.style.left = pageX - shiftX + "px";
+    Image.style.top = pageY - shiftY + "px";
   }
 
   function mouseMove(event: MouseEvent) {
@@ -63,7 +63,7 @@
   }
 
   function onScroll(event: WheelEvent) {
-    fixedContImg.style.transition = "all .2s"; // TODO requestAnimationFrame
+    Image.style.transition = "all .2s"; // TODO requestAnimationFrame
 
     let prevHeight: number;
     let prevWidth: number;
@@ -71,42 +71,42 @@
     let nextWidth: number;
 
     if (event.deltaY < 0) {
-      fixedContImg.height = fixedContImg.offsetHeight * 1.3;
-      fixedContImg.width = fixedContImg.offsetWidth * 1.3;
+      Image.height = Image.offsetHeight * 1.3;
+      Image.width = Image.offsetWidth * 1.3;
 
-      prevHeight = fixedContImg.height;
-      prevWidth = fixedContImg.width;
-      nextHeight = fixedContImg.offsetHeight * 1.3;
-      nextWidth = fixedContImg.offsetWidth * 1.3;
+      prevHeight = Image.height;
+      prevWidth = Image.width;
+      nextHeight = Image.offsetHeight * 1.3;
+      nextWidth = Image.offsetWidth * 1.3;
 
-      fixedContImg.style.left =
-        fixedContImg.offsetLeft -
+      Image.style.left =
+        Image.offsetLeft -
         (nextWidth - prevWidth) *
-          ((event.pageX - fixedContImg.offsetLeft) / fixedContImg.offsetWidth) +
+          ((event.pageX - Image.offsetLeft) / Image.offsetWidth) +
         "px";
-      fixedContImg.style.top =
-        fixedContImg.offsetTop -
+      Image.style.top =
+        Image.offsetTop -
         (nextHeight - prevHeight) *
-          ((event.pageY - fixedContImg.offsetTop) / fixedContImg.offsetHeight) +
+          ((event.pageY - Image.offsetTop) / Image.offsetHeight) +
         "px";
     } else {
-      fixedContImg.height = fixedContImg.offsetHeight * 0.7;
-      fixedContImg.width = fixedContImg.offsetWidth * 0.7;
+      Image.height = Image.offsetHeight * 0.7;
+      Image.width = Image.offsetWidth * 0.7;
 
-      prevHeight = fixedContImg.height;
-      prevWidth = fixedContImg.width;
-      nextHeight = fixedContImg.offsetHeight * 0.7;
-      nextWidth = fixedContImg.offsetWidth * 0.7;
+      prevHeight = Image.height;
+      prevWidth = Image.width;
+      nextHeight = Image.offsetHeight * 0.7;
+      nextWidth = Image.offsetWidth * 0.7;
 
-      fixedContImg.style.left =
-        fixedContImg.offsetLeft +
+      Image.style.left =
+        Image.offsetLeft +
         -(nextWidth - prevWidth) *
-          ((event.pageX - fixedContImg.offsetLeft) / fixedContImg.offsetWidth) +
+          ((event.pageX - Image.offsetLeft) / Image.offsetWidth) +
         "px";
-      fixedContImg.style.top =
-        fixedContImg.offsetTop +
+      Image.style.top =
+        Image.offsetTop +
         -(nextHeight - prevHeight) *
-          ((event.pageY - fixedContImg.offsetTop) / fixedContImg.offsetHeight) +
+          ((event.pageY - Image.offsetTop) / Image.offsetHeight) +
         "px";
     }
   }
@@ -121,7 +121,7 @@
   >
     <img
       draggable="true"
-      bind:this={fixedContImg}
+      bind:this={Image}
       on:dragstart|preventDefault
       on:mousedown={mouseStart}
       on:mouseup={mouseEnd}
